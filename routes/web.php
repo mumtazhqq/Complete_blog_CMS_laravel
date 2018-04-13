@@ -10,8 +10,8 @@ Auth::routes();
 Route::prefix('dash')->group(function (){
     Route::get('/','HomeController@index');
     Route::get('/logout','DashController@logout');
-    Route::post('/logout','DashController@logout');
-    Route::get('/new_post',['as'=>'new_post','uses'=>'HomeController@show_new_post']);
+    Route::post('/logout','DashController@logout')->name('logout');
+    Route::resource('/post','PostsController');
 });
 
 Route::prefix('guest')->group(function (){

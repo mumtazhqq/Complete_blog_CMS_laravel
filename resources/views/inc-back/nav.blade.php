@@ -131,7 +131,7 @@
         <div class="c-dropdown__menu has-arrow dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuAvatar">
             <a class="c-dropdown__item dropdown-item" href="#">Edit Profile</a>
             <a class="c-dropdown__item dropdown-item" href="#">View Activity</a>
-            <a class="c-dropdown__item dropdown-item" href="#">Log out</a>
+            <a class="c-dropdown__item dropdown-item" href="{{ route('logout')  }}">Log out</a>
         </div>
     </div>
 </header>

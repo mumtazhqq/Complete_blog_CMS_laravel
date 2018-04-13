@@ -29,6 +29,19 @@
                     </div>
                 </div>
 
+
+
+                <div class="js-upload uk-placeholder uk-text-center">
+                    <span uk-icon="icon: cloud-upload"></span>
+                    <span class="uk-text-middle">Attach binaries by dropping them here or</span>
+                    <div uk-form-custom>
+                        <input type="file" multiple>
+                        <span class="uk-link">selecting one</span>
+                    </div>
+                </div>
+
+                <progress id="js-progressbar" class="uk-progress" value="0" max="100" hidden></progress>
+
                 <div class="uk-margin">
                     <div class="uk-form-controls">
                         <a class="c-btn c-btn--info" href="#!">post</a>

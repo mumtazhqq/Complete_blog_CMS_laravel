@@ -25,8 +25,5 @@ class HomeController extends Controller
     {
         return view('back-end.index');
     }
-
-    public function show_new_post(){
-        return view('back-end.posts.new_post');
-    }
+    
 }
