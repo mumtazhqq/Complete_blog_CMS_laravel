@@ -12,44 +12,72 @@
 
 @section('content')
 
-    <div class="uk-container">
-            <form class="uk-form-horizontal uk-margin-large">
+   <div class="container">
+       <div class="row">
+           <div class="col-12">
+               <div class="row u-mb-medium">
+                   <div class="col-12">
+                       @include('includes.errors')
+                       <form action="{{ route('post.store') }}" method="post" enctype="multipart/form-data">
+                           @csrf
+                       <div class="c-card">
+                           <div class="row u-mb-medium">
+                               <div class="col-lg-8 u-mb-xsmall">
+                                   <label for="">Title : </label>
+                                   <br><br>
+                                   <div class="c-field">
+                                       <input class="c-input" type="text" id="input1" placeholder="Enter post title" name="title" value="{{ old('title') }}">
+                                   </div>
+                               </div>
+                               <div class="col-lg-4 u-mb-xsmall">
+                                   <label for="">Category : </label>
+                                   <br><br>
+                                   <div class="c-select">
+                                       <select class="c-select__input" name="id_category">
+                                           @foreach($categories as $category)
+                                               <option value="{{ $category->id }}">{{ $category->category }}</option>
+                                               @endforeach
+                                       </select>
+                                   </div>
+                               </div>
+                           </div>
+                                    <div class="row">
+                                    <div class="col-3">
+                                        <div class="c-field">
+                                            <label for="">Image : </label>
+                                            <input type="file" name="imagepath" accept="image/*">
+                                        </div>
+                                    </div>
+                                    <div class="col-9">
+                                        <div class="uk-margin uk-grid-small uk-child-width-auto uk-grid">
+                                            <label for="">Tags : </label>
 
-                <div class="uk-margin">
-                    <label class="uk-form-label" for="form-horizontal-text">Title </label>
-                    <div class="uk-form-controls">
-                        <input class="uk-input" id="form-horizontal-text" type="text" placeholder="Some text...">
-                    </div>
-                </div>
+                                        @foreach($tags as $tag)
+                                            <label><input class="uk-checkbox" type="checkbox" name="tag[]" value="{{ $tag->id }}"> {{ $tag->tag }} </label>
+                                                @endforeach
+                                        </div>
+                                    </div>
+                                    </div><br>
+                           <div class="row">
+                               <div class="c-field">
+                                   <div class="col-lg-12 u-mb-xsmall">
+                                       <label for="">Content : </label>
 
-                <div class="uk-margin">
-                    <label class="uk-form-label" for="form-horizontal-text">Content </label>
-                    <div class="uk-form-controls">
-                        <textarea name="" id="" cols="30" rows="10" class="uk-textarea" id="form-horizontal-text"></textarea>
-                    </div>
-                </div>
-
-
-
-                <div class="js-upload uk-placeholder uk-text-center">
-                    <span uk-icon="icon: cloud-upload"></span>
-                    <span class="uk-text-middle">Attach binaries by dropping them here or</span>
-                    <div uk-form-custom>
-                        <input type="file" multiple>
-                        <span class="uk-link">selecting one</span>
-                    </div>
-                </div>
-
-                <progress id="js-progressbar" class="uk-progress" value="0" max="100" hidden></progress>
-
-                <div class="uk-margin">
-                    <div class="uk-form-controls">
-                        <a class="c-btn c-btn--info" href="#!">post</a>
-                    </div>
-                </div>
-
-            </form>
-
-    </div>
+                                       <textarea name="content" id="" cols="30" rows="10" class="uk-textarea">{{ old('content') }}</textarea>
+                                   </div>
+                                   <div class="c-field">
+                                       <div class="col-lg-12 u-mb-xsmall">
+                                       <button class="c-btn c-btn--secondary u-mb-xsmall" type="submit">post</button>
+                                       </div>
+                                   </div>
+                               </div>
+                           </div>
+                       </div>
+                       </form>
+                   </div>
+               </div>
+           </div>
+       </div>
+   </div>
 
 @endsection

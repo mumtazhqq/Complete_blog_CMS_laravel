@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Profile;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -35,11 +36,18 @@ class DashController extends Controller
                 'password'=>Hash::make(request('password'))
         ]);
 
-     auth()->login($user);
+        Profile::create([
+            'user_id'=>$user->id,
+            'avatar'=>'https://st3.depositphotos.com/7157796/17738/v/1600/depositphotos_177389638-stock-illustration-captain-america-vector-illustration.jpg'
+        ]);
 
-     Mail::to($user)->send(new Welcome($user));
+      auth()->login($user);
 
-    return redirect('/dash')->with('messageRNU','Welcome To Dashboard !!! ');
+     
+
+
+    return redirect('/dash')->with('messageRNU','Welcome To Dashboard '.auth()->user()->name)
+    ->with(Mail::to($user)->send(new Welcome($user)));
 
     }
 
@@ -51,7 +59,7 @@ class DashController extends Controller
         if (! auth()->attempt(request(['email','password']))){
             return back()->withErrors(['message'=>'please check your credantials and try again']);
         }
-        session()->flash('w_back','Welcome back');
+        session()->flash('w_back','Welcome back '.auth()->user()->name);
         return redirect('/dash');
     }
 
@@ -59,12 +67,5 @@ class DashController extends Controller
         auth()->logout();
         return Redirect('/dash');
     }
-
-
-
-
-
-
-
 
 }
