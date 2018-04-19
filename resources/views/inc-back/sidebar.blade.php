@@ -37,6 +37,11 @@
             <span class="c-sidebar__title">Settings</span>
             <ul class="c-sidebar__list">
                 <li>
+                    <a class="c-sidebar__link" href="">
+                        <i class="c-sidebar__icon feather icon-settings"></i>General
+                    </a>
+                </li>
+                <li>
                     <a class="c-sidebar__link" href="{{ route('show_profile') }}">
                         <i class="c-sidebar__icon feather icon-user"></i>my profile
                     </a>

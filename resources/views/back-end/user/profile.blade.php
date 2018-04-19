@@ -24,44 +24,65 @@
 </div>
 <div class="c-tabs__content tab-content" id="nav-tabContent">
 <div class="c-tabs__pane active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-<form action="{{ route('update_profile') }}" method="post">
+<form action="{{ route('update_profile') }}" method="post" enctype="multipart/form-data">
 @csrf
 @method('patch')
 <div class="row">
 <div class="col-xl-4">
 <div class="c-field u-mb-medium">
-<label class="c-field__label" for="user-name">Name</label>
-<input class="c-input" type="text" id="user-name" name="name" value="{{ $user->name }}">
+<label class="c-field__label" for="name">Name</label>
+<input class="c-input" type="text" id="name" name="name" value="{{ $user->name }}">
 </div>
 
 <div class="c-field u-mb-medium">
 <label class="c-field__label" for="user-email">Email Address</label>
 <input class="c-input" type="text" id="user-email" name="email" value="{{ $user->email }}">
 </div>
-<div class="c-field u-mb-medium">
-<label class="c-field__label" for="user-phone">New password</label>
-<input class="c-input" type="password" id="user-phone" name="password">
-</div>
+
+
+
+
+
+    <div class="c-field u-mb-medium">
+        <label class="c-field__label" for="user-phone">Current password</label>
+        <input class="c-input" type="password" id="user-password" name="current_password">
+    </div>
+
+    <div class="c-field  u-mb-medium">
+        <label for="">Avatar : </label><br>
+        <input type="file" name="imagepath" accept="image/*">
+    </div>
+
+
+
 </div>
 <div class="col-xl-4">
 <div class="c-field u-mb-medium">
-<label class="c-field__label" for="user-name">github</label>
-<input class="c-input" type="text" id="user-name" name="github" value="{{ $user->profile->github_url }}">
+<label class="c-field__label" for="user-github">github</label>
+<input class="c-input" type="text" id="user-github" name="github" value="{{ $user->profile->github_url }}">
 </div>
 <div class="c-field u-mb-medium">
-<label class="c-field__label" for="user-name">twitter</label>
-<input class="c-input" type="text" id="user-name" name="twitter" value="{{ $user->profile->twitter_url }}">
+<label class="c-field__label" for="user-twitter">twitter</label>
+<input class="c-input" type="text" id="user-twitter" name="twitter" value="{{ $user->profile->twitter_url }}">
 </div>
 
-<div class="c-field u-mb-medium">
-<label class="c-field__label" for="user-name">Confirm password</label>
-<input class="c-input" type="password" id="user-name" name="confirmation_password">
-</div>
+
+
+    <div class="c-field u-mb-medium">
+        <label class="c-field__label" for="user-phone">New password</label>
+        <input class="c-input" type="password" id="new_password" name="password">
+    </div>
+
+    <div class="c-field u-mb-medium">
+        <label class="c-field__label" for="user-Confirm">Confirm password</label>
+        <input class="c-input" type="password" id="user-Confirm" name="password_confirmation">
+    </div>
+
 </div>
 <div class="col-xl-4">
 <div class="c-card u-text-center">
 <div class="c-avatar u-inline-flex">
-<img class="c-avatar__img" src="{{ $user->profile->avatar }}" alt="{{ $user->name }}">
+<img class="c-avatar__img" src="{{$user->profile->avatar }}" alt="{{ $user->name }}">
 </div>
 <h5>{{ $user->name }}</h5>
 <p class="u-pb-small u-mb-small u-border-bottom">

@@ -10,6 +10,7 @@
     New post
 @endsection
 
+
 @section('content')
 
    <div class="container">
@@ -63,7 +64,7 @@
                                    <div class="col-lg-12 u-mb-xsmall">
                                        <label for="">Content : </label>
 
-                                       <textarea name="content" id="" cols="30" rows="10" class="uk-textarea">{{ old('content') }}</textarea>
+                                       <textarea name="content" id="summernote" cols="50" rows="50" class="uk-textarea">{{ old('content') }}</textarea>
                                    </div>
                                    <div class="c-field">
                                        <div class="col-lg-12 u-mb-xsmall">
@@ -81,3 +82,18 @@
    </div>
 
 @endsection
+
+
+@section('scripts')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $('#summernote').summernote({
+                tabsize: 2,
+                height: 150
+            });
+        });
+    </script>
+    @stop

@@ -1,10 +1,6 @@
 <?php
+
 Auth::routes();
-// Route::group(['prefix'=>'admin'],function(){});
-// Route::group(['prefix'=>'admin','middleware'=>'auth'],function(){});
-// Route::prefix('dash')->group(function(){});
-
-
 
 // middleware for admin
 Route::group(['prefix'=>'/dash','middleware'=>['auth','admin']],function (){
