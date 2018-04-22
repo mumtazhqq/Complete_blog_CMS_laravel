@@ -44,12 +44,6 @@ class DashController extends Controller
 
       auth()->login($user);
 
-<<<<<<< Updated upstream
-=======
-     
-
-
->>>>>>> Stashed changes
     return redirect()->route('home')->with('messageRNU','Welcome To Dashboard '.auth()->user()->name)
     ->with(Mail::to($user)->send(new Welcome($user)));
 
