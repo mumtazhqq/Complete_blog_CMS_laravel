@@ -27,6 +27,22 @@
 
 
 </script>
-@yield('scripts')
-</body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
+
+    <script>
+        var content = $("#summernote").val()
+
+        $(document).ready(function() {
+            $('#summernote').summernote({
+                tabsize: 2,
+                height: 150,
+                height: 300,                 // set editor height
+                minHeight: null,             // set minimum height of editor
+                maxHeight: null,             // set maximum height of editor
+                focus: true                  // set focus to editable area after initializing summernote
+            });
+        });
+    </script>
+   </body>
 </html>

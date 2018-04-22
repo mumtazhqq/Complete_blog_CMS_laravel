@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Post;
 use App\Profile;
 use App\User;
 use Illuminate\Http\Request;
@@ -43,10 +44,13 @@ class DashController extends Controller
 
       auth()->login($user);
 
+<<<<<<< Updated upstream
+=======
      
 
 
-    return redirect('/dash')->with('messageRNU','Welcome To Dashboard '.auth()->user()->name)
+>>>>>>> Stashed changes
+    return redirect()->route('home')->with('messageRNU','Welcome To Dashboard '.auth()->user()->name)
     ->with(Mail::to($user)->send(new Welcome($user)));
 
     }
@@ -60,12 +64,13 @@ class DashController extends Controller
             return back()->withErrors(['message'=>'please check your credantials and try again']);
         }
         session()->flash('w_back','Welcome back '.auth()->user()->name);
-        return redirect('/dash');
+        return redirect()->route('home');
     }
 
     public function logout(){
         auth()->logout();
-        return Redirect('/dash');
+        return redirect()->route('login');
     }
+
 
 }

@@ -68,7 +68,7 @@
                                 <div class="row">
                                     <div class="c-field">
                                         <div class="col-lg-12 u-mb-xsmall">
-                                            <textarea name="content" id="" cols="30" rows="10" class="uk-textarea">{{ $post->content }}</textarea>
+                                            <textarea name="content" id="summernote" cols="30" rows="10" class="uk-textarea">{{ $post->content }}</textarea>
                                         </div>
                                         <div class="c-field">
                                             <div class="col-lg-12 u-mb-xsmall">

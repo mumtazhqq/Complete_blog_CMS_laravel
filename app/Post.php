@@ -9,7 +9,7 @@ class Post extends Model
 {
     use SoftDeletes;
 
-    protected $fillable = ['title','content','image_path','category_id','slug'];
+    protected $fillable = ['title','content','image_path','category_id','slug','user_id','excerpt'];
     protected $dates = ['deleted_at'];
 
     public function category(){
@@ -22,5 +22,9 @@ class Post extends Model
 
     public function tags(){
         return $this->belongsToMany(Tag::class)->withTimestamps();
+    }
+
+    public function user(){
+        return $this->belongsTo(User::class);
     }
 }

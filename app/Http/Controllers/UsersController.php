@@ -47,10 +47,16 @@ class UsersController extends Controller
     public function destroy($id)
     {
         $user = User::findOrfail($id);
-        $user->delete();
+        if (auth()->user()->id === $user->id){
+            $notification = ['message'=>'you cannot remove your account stupid','alert-type'=>'error'];
+            return redirect()->back()->with($notification);
+        }
+        else{
+            $user->delete();
+            $notification = ['message'=>'user has been deleted','alert-type'=>'success'];
+            return redirect()->back()->with('notification',$notification);
+        }
 
-        $notification = ['message'=>'user has been deleted','alert-type'=>'success'];
-        return redirect()->back()->with('notification',$notification);
     }
 
     public function remove_permision($id){

@@ -3,6 +3,16 @@
 
         <!-- Scrollable -->
         <div class="c-sidebar__body">
+            <span class="c-sidebar__title">Dash</span>
+            <ul class="c-sidebar__list">
+                @if(auth()->user()->admin)
+                    <li>
+                        <a class="c-sidebar__link" href="{{ route('home') }}">
+                            <i class="c-sidebar__icon feather icon-hash"></i>Dashboard
+                        </a>
+                    </li>
+                @endif
+            </ul>
             <span class="c-sidebar__title">Blog</span>
             <ul class="c-sidebar__list">
                 <li>

@@ -54,6 +54,8 @@ class PostsController extends Controller
         $image->move('uploads/posts/',$image_new_name);
         $post->image_path = '/uploads/posts/'.$image_new_name;
         $post->slug = str_slug(request('title'),'-');
+        $post->excerpt = request('excerpt');
+        $post->user_id = auth()->user()->id;
         $post->save();
 
         $post->tags()->attach(request('tag'));

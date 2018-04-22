@@ -15,7 +15,7 @@ class Userseeder extends Seeder
             'name'=>'moktar',
             'email'=>'moktarb911@gmail.com',
             'password'=>bcrypt('password'),
-            'admin'=>1
+            'admin'=> 1,
 
         ]);
 

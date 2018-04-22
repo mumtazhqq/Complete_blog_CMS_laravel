@@ -63,8 +63,11 @@
                                <div class="c-field">
                                    <div class="col-lg-12 u-mb-xsmall">
                                        <label for="">Content : </label>
-
                                        <textarea name="content" id="summernote" cols="50" rows="50" class="uk-textarea">{{ old('content') }}</textarea>
+                                   </div>
+                                   <div class="col-lg-12 u-mb-xsmall">
+                                       <label for="">excerpt : </label>
+                                       <textarea name="excerpt" id="" cols="10" rows="5" class="uk-textarea"></textarea>
                                    </div>
                                    <div class="c-field">
                                        <div class="col-lg-12 u-mb-xsmall">
@@ -84,16 +87,3 @@
 @endsection
 
 
-@section('scripts')
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
-
-    <script>
-        $(document).ready(function() {
-            $('#summernote').summernote({
-                tabsize: 2,
-                height: 150
-            });
-        });
-    </script>
-    @stop

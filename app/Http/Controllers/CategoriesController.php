@@ -20,10 +20,15 @@ class CategoriesController extends Controller
     }
 
 
-    public function store()
+    public function store(Request $request)
     {
         $this->validate(request(),['category'=>'required|min:4|unique:categories']);
-        Category::create(request(['category']));
+
+        $category = new Category();
+        $category->category = $request->category;
+        $cate = $category->category = $request->category;
+        $category->slug = str_slug($cate,'-');
+        $category->save();
         $notification = ['message'=>'New category had been add','alert-type'=>'success'];
         return redirect()->back()->with($notification);
     }
@@ -45,6 +50,7 @@ class CategoriesController extends Controller
     {
         $this->validate(request(),['category'=>'required|min:4']);
         $category->category = request('category');
+        $category->slug = str_slug('category','-');
         $category->save();
         $notification = ['message'=>'category has been updated','alert-type'=>'success'];
         return redirect()->back()->with($notification);

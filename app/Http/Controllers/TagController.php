@@ -21,12 +21,15 @@ class TagController extends Controller
     }
 
    
-    public function store()
+    public function store(Tag $tag)
     {
         $this->validate(request(),['tag'=>'required|min:1|unique:tags']);
-        Tag::create(request(['tag']));
+        $tag->tag = request('tag');
+        $tag->slug = str_slug(request('tag'),'-');
+        $tag->save();
         $notification = ['message'=>'New tag had been add','alert-type'=>'success'];
-        return redirect()->back()->with($notification);    }
+        return redirect()->back()->with($notification);
+    }
 
    
     public function show(Tag $tag)
@@ -45,6 +48,7 @@ class TagController extends Controller
     {
         $this->validate(request(),['tag'=>'required|min:1']);
         $tag->tag = request('tag');
+        $tag->slug = str_slug(request('tag'),'-');
         $tag->save();
         $notification = ['message'=>'Tag has been updated','alert-type'=>'success'];
         return redirect()->back()->with($notification);
