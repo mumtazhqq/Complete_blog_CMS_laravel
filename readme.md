@@ -9,3 +9,8 @@ Happy coding
 ![alt tag](https://github.com/almokhtarbr/Complete_blog_CMS_laravel/blob/master2/A-Screenshot/categories.png?raw=true)
 
 
+
+## Support on Beerpay
+Hey dude! Help me out for a couple of :beers:!
+
+[![Beerpay](https://beerpay.io/almokhtarbr/Complete_blog_CMS_laravel/badge.svg?style=beer-square)](https://beerpay.io/almokhtarbr/Complete_blog_CMS_laravel)  [![Beerpay](https://beerpay.io/almokhtarbr/Complete_blog_CMS_laravel/make-wish.svg?style=flat-square)](https://beerpay.io/almokhtarbr/Complete_blog_CMS_laravel?focus=wish)
